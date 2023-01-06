@@ -1,6 +1,5 @@
-# MLOPS project - Image classification of finger pictures
-
 ![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/dataset-cover.jpg)
+# MLOPS project - Image classification of finger pictures
 
 Helena Sofía Yaben Lopezosa - s213617 \
 Ania Bzinkowska - s213027 \
