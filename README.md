@@ -7,7 +7,7 @@ Oliver Alman Sande s174032 \
 David Immanuel Hartel s212588 
 
 ### Overall goal of the project
-The goal of the project is to use deep learning to solve a classification task of counting giners as well as distinguishing between left and right hand.
+The goal of the project is to use deep learning to solve a classification task of counting fingers as well as distinguishing between left and right hand.
 
 
 # Project Organization
