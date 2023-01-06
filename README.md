@@ -1,4 +1,4 @@
-# MLOPS project description - Natural Language Processing with Disaster Tweets
+# MLOPS project - Image classification of finger pictures
 
 Helena Sofía Yaben Lopezosa s213617 \
 Ania Bzinkowska s213027 \
