@@ -1,10 +1,10 @@
 # MLOPS project description - Natural Language Processing with Disaster Tweets
 
-Ania Bzinkowska s203131 \
 Helena Sofía Yaben Lopezosa s213617 \ 
-Anna Bzinkowska s213027 \
+Ania Bzinkowska s213027 \
 Antoni  Wojciech Skrobisz s213612 \
-Oliver Alman Sande s174032
+Oliver Alman Sande s174032 \
+David Immanuel Hartel s212588 \
 
 ### Overall goal of the project
 The goal of the project is to use deep learning to solve a classification task of counting giners as well as distinguishing between left and right hand.
