@@ -1,7 +1,7 @@
 import os
 import pathlib
 from typing import Dict, List, Tuple
-
+import wandb
 import click
 import matplotlib.pyplot as plt
 import torch
@@ -49,23 +49,28 @@ class ImageFolderCustom(Dataset):
 @click.command()
 @click.option("--lr", default=1e-3, help='learning rate to use for training')
 def train(lr):
-
-    print("Training day and night")
-    print(lr)
-
-    # TODO: Implement training loop here
     model = MyAwesomeModel()
+    epochs = 10 
+    batch_size = 64
+
+    # logging with wandb
+    args = {"epochs": epochs, "batch_size": batch_size,
+            "learning_rate": lr}
+    wandb.init(project = "count fingers", config = args)
+    wandb.watch(model, log_freq=100)
     
     trainset = ImageFolderCustom(targ_dir=os.path.join(os.getcwd(), 'data', 'processed'), train=True)
     # Train DataLoader
     trainloader = DataLoader(dataset=trainset, # use custom created train Dataset
-                                        batch_size=64, # how many samples per batch?
+                                        batch_size=batch_size, # how many samples per batch?
                                         shuffle=True) # shuffle the data?
-    epochs = 10
     criterion = nn.NLLLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
     train_losses = []
+
+    print("Training day and night")
+    print(lr)
     
     for e in range(epochs):
 
@@ -87,6 +92,9 @@ def train(lr):
             optimizer.step()
             # Add batch loss to epoch losses list
             epoch_losses += loss.item()
+            
+            # Log loss to wandb
+            wandb.log({"loss": loss})
         
         train_losses.append(epoch_losses/len(trainloader))
         print(f"Train loss in epoch {e}: {epoch_losses/len(trainloader)}")
