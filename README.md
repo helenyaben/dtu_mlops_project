@@ -1,6 +1,6 @@
 # MLOPS project description - Natural Language Processing with Disaster Tweets
 
-Helena Sofía Yaben Lopezosa s213617 \ 
+Helena Sofía Yaben Lopezosa s213617 \
 Ania Bzinkowska s213027 \
 Antoni  Wojciech Skrobisz s213612 \
 Oliver Alman Sande s174032 \
