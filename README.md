@@ -17,7 +17,15 @@ The goal of the project is to use deep learning to solve a classification task o
 ### How to you intend to include the framework into your project?
 
 ### What data are you going to run on (initially, may change)?
-We are using the Kaggle dataset [Fingers](https://www.kaggle.com/datasets/koryakinp/fingers)
+We are using the Kaggle dataset [Fingers](https://www.kaggle.com/datasets/koryakinp/fingers). 
+It contains 21600 images of left and right hands fingers.
+
+All images are 128 by 128 pixels.
+
+Training set: 18000 images
+Test set: 3600 images
+Images are centered by the center of mass.
+Noise pattern on the background
 
 ### What deep learning models do you expect to use?
 We intend to use...
