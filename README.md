@@ -9,26 +9,30 @@ David Immanuel Hartel - s212588
 
 ## Project description
 
+
 ### Overall goal of the project
-The goal of the project is to use deep learning to solve a classification task of counting fingers as well as distinguishing between left and right hand.
+The goal of the project is to develop MLOps pipeline for computer vision problem. We will use deep learning to solve a classification task of counting fingers as well as distinguishing between left and right hand.
 
-### Data
-We are using the Kaggle dataset [Fingers](https://www.kaggle.com/datasets/koryakinp/fingers), which contains 21600 images of centered left and right hands fingers. All images are 128 by 128 pixels and have a noise pattern on the background.
 
-Training set: 18000 images \
-Test set: 3600 images 
+### What framework are we going to use and how do we intend to include the framework into your project
 
-### Frameworks
  - Organization and version control: Git, cookie cutter, DVC
  - Deep Learning: PyTorch
  - Reproducibility: Docker
 ...
 
 
+### What data are we going to run the model on
+We are using the Kaggle [Fingers](https://www.kaggle.com/datasets/koryakinp/fingers) dataset, which contains 21600 images of centered left and right hands 'showing numbers' with fingers. All images are 128 by 128 pixels and have a noise pattern on the background.
 
-### Deep learning model
-We intend to use a CNN for the image classification
+Training set: 18000 images \
+Test set: 3600 images 
 
+Labels are in the last 2 characters of a file name. L/R indicates left/right hand; 0,1,2,3,4,5 indicates the number of fingers.
+
+
+### What deep learning models do we expect to use
+We intend to utilise a CNN for the image classification. The CNNs will serve as a backbone of our model, and then the extracted features will be passsed to a fully connected layer to make predictions. The specificity of the task does not require more sophisticated network, which will allow us to focus on all the elements of the pipeline to be delevoped.
 
 
 ## Project Organization
