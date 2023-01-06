@@ -30,7 +30,7 @@ We intend to use a CNN for the image classification
 
 
 
-# Project Organization
+## Project Organization
 ------------
 
     ├── LICENSE
