@@ -61,7 +61,7 @@ def train(lr):
     trainloader = DataLoader(dataset=trainset, # use custom created train Dataset
                                         batch_size=64, # how many samples per batch?
                                         shuffle=True) # shuffle the data?
-    epochs = 30
+    epochs = 10
     criterion = nn.NLLLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
