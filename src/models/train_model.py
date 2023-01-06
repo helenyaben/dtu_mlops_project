@@ -79,6 +79,7 @@ def train(lr):
             # Obtain log probabilities
             log_ps = model(images)
             # Calculate loss
+            # print(log_ps.shape)
             loss = criterion(log_ps, labels)
             # Apply backward
             loss.backward()
