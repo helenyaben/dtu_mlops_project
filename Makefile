@@ -26,8 +26,17 @@ requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## Make Dataset
-data: requirements
+data: 
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
+
+# Train model
+train: 
+	$(PYTHON_INTERPRETER) src/models/train_model.py
+
+
+# Predict with model
+predict: 
+	$(PYTHON_INTERPRETER) src/models/predict_model.py
 
 ## Delete all compiled Python files
 clean:
