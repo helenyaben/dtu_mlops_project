@@ -12,6 +12,9 @@ from torch import nn, optim
 from torch.utils.data import DataLoader, Dataset
 from torchvision import datasets, transforms
 
+import wandb
+
+wandb.init(project="fingers-test", entity = 'dtu-mlops-gr30')
 
 # 1. Subclass torch.utils.data.Dataset
 class ImageFolderCustom(Dataset):
@@ -84,6 +87,8 @@ def train(lr):
             loss.backward()
             # Move optimizer 
             optimizer.step()
+            # log loss
+            wandb.log({"loss": loss / 100})
             # Add batch loss to epoch losses list
             epoch_losses += loss.item()
         
