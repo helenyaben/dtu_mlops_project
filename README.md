@@ -17,7 +17,8 @@ The goal of the project is to use deep learning to solve a classification task o
 ### How to you intend to include the framework into your project?
 
 ### What data are you going to run on (initially, may change)?
-We are using the Kaggle dataset. https://www.kaggle.com/datasets/koryakinp/fingers
+We are using the Kaggle dataset[Fingers]([https://link-url-here.org](https://www.kaggle.com/datasets/koryakinp/fingers)
+
 ### What deep learning models do you expect to use?
 We intend to use...
 
