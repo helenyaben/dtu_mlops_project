@@ -50,13 +50,13 @@ class ImageFolderCustom(Dataset):
 @click.option("--lr", default=1e-3, help='learning rate to use for training')
 def train(lr):
     model = MyAwesomeModel()
-    epochs = 30 
+    epochs = 10 
     batch_size = 64
 
     # logging with wandb
     args = {"epochs": epochs, "batch_size": batch_size,
             "learning_rate": lr}
-    wandb.init(project = "MNIST Experiment", config = args)
+    wandb.init(project = "count fingers", config = args)
     wandb.watch(model, log_freq=100)
     
     trainset = ImageFolderCustom(targ_dir=os.path.join(os.getcwd(), 'data', 'processed'), train=True)
@@ -64,7 +64,6 @@ def train(lr):
     trainloader = DataLoader(dataset=trainset, # use custom created train Dataset
                                         batch_size=batch_size, # how many samples per batch?
                                         shuffle=True) # shuffle the data?
-    epochs = 10
     criterion = nn.NLLLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
