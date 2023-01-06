@@ -1,13 +1,26 @@
 # MLOPS project - Image classification of finger pictures
 
-Helena Sofía Yaben Lopezosa s213617 \
-Ania Bzinkowska s213027 \
-Antoni  Wojciech Skrobisz s213612 \
-Oliver Alman Sande s174032 \
-David Immanuel Hartel s212588 
+Helena Sofía Yaben Lopezosa - s213617 \
+Ania Bzinkowska - s213027 \
+Antoni  Wojciech Skrobisz - s213612 \
+Oliver Alman Sande - s174032 \
+David Immanuel Hartel - s212588 
 
-### Project description
+## Project description
+
+
+### Overall goal of the project
 The goal of the project is to use deep learning to solve a classification task of counting fingers as well as distinguishing between left and right hand.
+
+### What framework are you going to use (Kornia, Transformer, Pytorch-Geometrics)
+
+### How to you intend to include the framework into your project
+
+### What data are you going to run on (initially, may change)
+We are using the Kaggle dataset...
+### What deep learning models do you expect to use
+We intend to use...
+
 
 
 # Project Organization
