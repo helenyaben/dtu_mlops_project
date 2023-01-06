@@ -20,7 +20,7 @@ The goal of the project is to develop MLOps pipeline for computer vision problem
  - Deep Learning: PyTorch
  - Reproducibility: Docker
  - Experiment tracking: Weights & Biases
- - tbc
+ - to be continued...
 
 
 ### What data are we going to run the model on
