@@ -1,5 +1,8 @@
 # MLOPS project - Image classification of finger pictures
 
+![pic]([http://url/to/img.png](https://storage.googleapis.com/kaggle-datasets-images/98056/230124/e022946c52ffb2150ea1550285d1b8c9/dataset-cover.jpg?t=2018-12-30-06-58-51
+))
+
 Helena Sofía Yaben Lopezosa - s213617 \
 Ania Bzinkowska - s213027 \
 Antoni  Wojciech Skrobisz - s213612 \
