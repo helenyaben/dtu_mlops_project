@@ -8,24 +8,25 @@ David Immanuel Hartel - s212588
 
 ## Project description
 
-
 ### Overall goal of the project
 The goal of the project is to use deep learning to solve a classification task of counting fingers as well as distinguishing between left and right hand.
 
-### What framework are you going to use?
-
-### How to you intend to include the framework into your project?
-
-### What data are you going to run on (initially, may change)?
+### Data
 We are using the Kaggle dataset [Fingers](https://www.kaggle.com/datasets/koryakinp/fingers), which contains 21600 images of centered left and right hands fingers. All images are 128 by 128 pixels and have a noise pattern on the background.
 
 Training set: 18000 images \
-Test set: 3600 images \
+Test set: 3600 images 
+
+### Frameworks
+ - Organization and version control: Git, cookie cutter, DVC
+ - Deep Learning: PyTorch
+ - Reproducibility: Docker
+...
 
 
 
-### What deep learning models do you expect to use?
-We intend to use...
+### Deep learning model
+We intend to use a CNN for the image classification
 
 
 
