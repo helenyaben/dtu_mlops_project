@@ -6,7 +6,7 @@ Antoni  Wojciech Skrobisz s213612 \
 Oliver Alman Sande s174032 \
 David Immanuel Hartel s212588 
 
-### Overall goal of the project
+### Project description
 The goal of the project is to use deep learning to solve a classification task of counting fingers as well as distinguishing between left and right hand.
 
 
