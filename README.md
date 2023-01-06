@@ -19,7 +19,8 @@ The goal of the project is to develop MLOps pipeline for computer vision problem
  - Organization and version control: Git, cookie cutter, DVC
  - Deep Learning: PyTorch
  - Reproducibility: Docker
-...
+ - Experiment tracking: Weights & Biases
+ - tbc
 
 
 ### What data are we going to run the model on
