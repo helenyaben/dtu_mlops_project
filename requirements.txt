@@ -19,3 +19,4 @@ seaborn
 pandas
 dvc
 dvc[gdrive]
+wandb
