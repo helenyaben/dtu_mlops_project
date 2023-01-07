@@ -1,7 +1,7 @@
 import os
 import pathlib
 from typing import Dict, List, Tuple
-
+import wandb
 import click
 import matplotlib.pyplot as plt
 import torch
@@ -62,6 +62,10 @@ def evaluate(checkpoint):
                                         batch_size=64, # how many samples per batch?
                                         shuffle=True) # shuffle the data?
     
+
+    wandb.init(project = "fingers - prediction test")
+    wandb.watch(model, log_freq=100)
+
     state_dict = torch.load(checkpoint)
     model.load_state_dict(state_dict)
 
@@ -82,14 +86,23 @@ def evaluate(checkpoint):
             # Compare with true labels
             equals = top_class == labels.view(*top_class.shape)   
             # Obtain accuracy
-            batch_acccuracy = torch.mean(equals.type(torch.FloatTensor))       
-            test_accuracies.append(batch_acccuracy) 
+            batch_acccuracy = torch.mean(equals.type(torch.FloatTensor)) 
+            test_accuracies.append(batch_acccuracy)
+            
+        # log images and its prediction from the last batch
+        for image, label, prediction in zip(images, labels, top_class):
+            image = image.view(128, 128)
+            class_index = {'0R': 0, '1R': 1, '2R': 2, '3R': 3, '4R': 4, '5R': 5, '0L': 6, '1L':7, '2L':8, '3L':9, '4L':10, '5L':11}
+            class_index_inv = {v: k for k, v in class_index.items()}
+            plt.imshow(image)
+            plt.title(f'Prediction: {class_index_inv[prediction.item()]} \n True: {class_index_inv[label.item()]}')
+            wandb.log({"chart": plt})
 
     accuracy = sum(test_accuracies)/len(testloader)  
-
     print(f'Accuracy on test: {accuracy.item()*100}%')
 
-    
+    # log importatnt metrics
+    wandb.log({"Accuracy on test": accuracy.item()*100})
+
 if __name__ == "__main__":
     evaluate()
-    
