@@ -50,7 +50,7 @@ class ImageFolderCustom(Dataset):
 @click.option("--lr", default=1e-3, help='learning rate to use for training')
 def train(lr):
     model = MyAwesomeModel()
-    epochs = 10 
+    epochs = 5
     batch_size = 64
 
     # logging with wandb
