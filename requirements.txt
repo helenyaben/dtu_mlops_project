@@ -20,3 +20,4 @@ pandas
 dvc
 dvc[gdrive]
 wandb
+dvc[gs]
