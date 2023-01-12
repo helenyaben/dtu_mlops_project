@@ -3,3 +3,4 @@
 ['remote "remote_storage"']
     # Hi
     url = gs://dtumlops_project_fingers/
+    # Adding silly comment
