@@ -1,8 +1,7 @@
 import os
 import pathlib
 from typing import Dict, List, Tuple
-import wandb
-import yaml
+
 import click
 import matplotlib.pyplot as plt
 import torch
@@ -12,6 +11,8 @@ from model import MyAwesomeModel
 from torch import nn, optim
 from torch.utils.data import DataLoader, Dataset
 from torchvision import datasets, transforms
+
+import wandb
 
 
 # Define sweep config
@@ -39,7 +40,8 @@ class ImageFolderCustom(Dataset):
         
         # 3. Create class attributes
         self.classes = list(range(0, 12))
-        self.class_to_idx = class_index = {'0R': 0, '1R': 1, '2R': 2, '3R': 3, '4R': 4, '5R': 5, '0L': 6, '1L':7, '2L':8, '3L':9, '4L':10, '5L':11}
+        self.class_to_idx = class_index = {'0R': 0, '1R': 1, '2R': 2, '3R': 3, '4R': 4, 
+        '5R': 5, '0L': 6, '1L':7, '2L':8, '3L':9, '4L':10, '5L':11}
 
         # Import preprocessed data
         train_test_data = torch.load(os.path.join(targ_dir, 'train_test_processed.pt'))

@@ -1,0 +1,50 @@
+name: "Run general tests"
+
+on:
+  push:
+    branches: [ master, workflows ]
+  pull_request:
+    branches: [ master, workflows ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macOS-10.15, windows-2019]
+    steps:
+    - name: Cache pip
+      id: myCachePip
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-pip
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install pip
+      if: steps.myCachePip.outputs.cache-hit != 'true'
+      run: |
+        python -m pip install --upgrade pip
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install -r requirements_tests.txt
+    - name: Sort imports in coding files
+      run: |
+        pip install isort
+        isort --recursive .
+    - uses: iterative/setup-dvc@v1 # action
+    - name: Get data from dvc # action
+      run: | # command to run
+        dvc pull
