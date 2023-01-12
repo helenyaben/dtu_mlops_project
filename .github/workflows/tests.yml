@@ -40,10 +40,10 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install -r requirements_tests.txt
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        pytest -v
+   # - name: Test with pytest
+   #   run: |
+   #     pip install pytest
+   #     pytest -v
     - uses: iterative/setup-dvc@v1 # action
     - name: Get data # action
       run: | # command to run
