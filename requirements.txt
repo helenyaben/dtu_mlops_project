@@ -22,3 +22,4 @@ dvc[gdrive]
 wandb
 dvc[gs]
 isort
+requests

@@ -1,5 +1,5 @@
 # this workflow will not work because the code is not pep8 compliant
-name: "Run flake8 to check code compliance"
+name: "Run flake8 - code compliance"
 
 on:
   push:
