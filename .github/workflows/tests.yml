@@ -44,7 +44,7 @@ jobs:
       run: |
         pip install pytest
         pytest -v
-            - uses: iterative/setup-dvc@v1 # action
+    - uses: iterative/setup-dvc@v1 # action
     - name: Get data # action
       run: | # command to run
         dvc pull
