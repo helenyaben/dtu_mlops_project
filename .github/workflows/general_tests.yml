@@ -1,4 +1,4 @@
-name: "Run tests"
+name: "Run general tests to check env, dependencies etc."
 
 on:
   push:
@@ -40,11 +40,15 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install -r requirements_tests.txt
+    - name: Sort imports in coding files
+      run: |
+        pip install isort
+        isort --recursive .
    # - name: Test with pytest
    #   run: |
    #     pip install pytest
    #     pytest -v
     - uses: iterative/setup-dvc@v1 # action
-    - name: Get data # action
+    - name: Get data from dvc # action
       run: | # command to run
         dvc pull
