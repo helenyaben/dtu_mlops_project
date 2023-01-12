@@ -25,6 +25,7 @@ _wandb:
       4: 3.10.6
       5: 0.13.7
       8:
+      - 4
       - 5
 batch_size:
   desc: null
