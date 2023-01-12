@@ -1,0 +1,35 @@
+# this workflow will not work because the code is not pep8 compliant
+name: "Run flake8 - code compliance"
+
+on:
+  push:
+    branches: [ master, workflows ]
+  pull_request:
+    branches: [ master, workflows ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macOS-10.15, windows-2019]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install pip
+      if: steps.myCachePip.outputs.cache-hit != 'true'
+      run: |
+        python -m pip install --upgrade pip
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install -r requirements_tests.txt
+    - name: Check code compliance with pep8
+      run: |
+        pip install flake8
+        flake8 .

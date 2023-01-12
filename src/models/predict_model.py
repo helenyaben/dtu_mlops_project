@@ -1,7 +1,7 @@
 import os
 import pathlib
 from typing import Dict, List, Tuple
-import wandb
+
 import click
 import matplotlib.pyplot as plt
 import torch
@@ -11,6 +11,8 @@ from model import MyAwesomeModel
 from torch import nn, optim
 from torch.utils.data import DataLoader, Dataset
 from torchvision import datasets, transforms
+
+import wandb
 
 
 # 1. Subclass torch.utils.data.Dataset
