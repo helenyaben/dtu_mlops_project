@@ -21,3 +21,7 @@ dvc
 dvc[gdrive]
 wandb
 dvc[gs]
+isort
+requests
+fastapi
+uvicorn[standard]
