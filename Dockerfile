@@ -23,6 +23,7 @@ ARG GDRIVE_CREDENTIALS_DATA
 ENV GDRIVE_CREDENTIALS_DATA = $GDRIVE_CREDENTIALS_DATA
 # RUN dvc remote modify myremote access_key_id $ENV_GDRIVE_CREDENTIALS_DATA
 # RUN dvc remote modify myremote secret_access_key $ENV_GDRIVE_CREDENTIALS_DATA
+WORKDIR /
 RUN dvc pull
 
 ENTRYPOINT ["python", "--version"]
