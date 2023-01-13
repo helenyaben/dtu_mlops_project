@@ -1,1 +1,10 @@
-No data to report.
+Name                     Stmts   Miss  Cover
+--------------------------------------------
+src/__init__.py              0      0   100%
+src/models/__init__.py       0      0   100%
+src/models/model.py          9      0   100%
+tests/__init__.py            4      0   100%
+tests/test_data.py          29      0   100%
+tests/test_model.py          9      0   100%
+--------------------------------------------
+TOTAL                       51      0   100%
