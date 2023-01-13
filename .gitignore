@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+#wandb run logs
+wandb
+
 # C extensions
 *.so
 
