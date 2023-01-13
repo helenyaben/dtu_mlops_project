@@ -11,6 +11,7 @@ from model import MyAwesomeModel
 from torch import nn, optim
 from torch.utils.data import DataLoader, Dataset
 from torchvision import datasets, transforms
+import pickle
 
 import wandb
 
@@ -29,7 +30,7 @@ sweep_configuration = {
 }
 
 # Initialize sweep by passing in config. (Optional) Provide a name of the project.
-sweep_id = wandb.sweep(sweep=sweep_configuration, project='my-second-sweep')
+sweep_id = wandb.sweep(sweep=sweep_configuration, project='my-third-sweep')
 
 
 # 1. Subclass torch.utils.data.Dataset
@@ -175,7 +176,7 @@ def train():
         train_losses.append(train_loss)
         val_accuracy = sum(val_accuracies)/len(valloader)
 
-        print(f"Epoch {e} - Train loss: {epoch_losses/len(trainloader)}, Accuracy on val: {val_accuracy.item()*100}%")
+        print(f"Epoch {e+1 } - Train loss: {epoch_losses/len(trainloader)}, Accuracy on val: {val_accuracy.item()*100}%")
         
         # log important metrics
         train_accuracy = sum(train_accuracies)/len(trainloader)
@@ -187,6 +188,9 @@ def train():
         'val_acc': val_accuracy,
         })
     torch.save(model.state_dict(), os.path.join('models','my_trained_model.pt')) 
+    # save model as pickle
+    with open(os.path.join('models','my_trained_model.pkl'), 'wb') as f:
+        pickle.dump(model, f)
 
 if __name__ == "__main__":
     #train()
