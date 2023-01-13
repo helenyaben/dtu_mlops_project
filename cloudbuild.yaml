@@ -2,8 +2,7 @@
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/testing', '.', '--build-arg', '${_GDRIVE_CREDENTIALS_DATA}' ]
-
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/testing', '.', '--build-arg', 'GDRIVE_CREDENTIALS_DATA=${_GDRIVE_CREDENTIALS_DATA}' ]
   
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/testing']
