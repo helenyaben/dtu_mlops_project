@@ -23,13 +23,13 @@ sweep_configuration = {
     'parameters': 
     {
         'batch_size': {'values': [16, 32, 64]},
-        'epochs': {'values': [2, 3, 4]},
+        'epochs': {'values': [2, 3, 5]},
         'lr': {'max': 0.001, 'min': 0.0001}
      }
 }
 
 # Initialize sweep by passing in config. (Optional) Provide a name of the project.
-sweep_id = wandb.sweep(sweep=sweep_configuration, project='my-second-sweep')
+sweep_id = wandb.sweep(sweep=sweep_configuration, project='the_most_final_sweep')
 
 
 # 1. Subclass torch.utils.data.Dataset
@@ -163,13 +163,6 @@ def train():
             val_batch_acccuracy = torch.mean(equals.type(torch.FloatTensor)) 
             val_accuracies.append(val_batch_acccuracy)
             
-        # # log images and its prediction from the last batch
-        # for image, label, prediction in zip(images, labels, top_class):
-        #     image = image.view(128, 128)
-        #     class_index = {'0R': 0, '1R': 1, '2R': 2, '3R': 3, '4R': 4, '5R': 5, '0L': 6, '1L':7, '2L':8, '3L':9, '4L':10, '5L':11}
-        #     class_index_inv = {v: k for k, v in class_index.items()}
-        #     plt.title(f'Prediction: {class_index_inv[prediction.item()]} \n True: {class_index_inv[label.item()]}')
-        #     wandb.log({"chart": plt})
 
         train_loss = epoch_losses/len(trainloader)
         train_losses.append(train_loss)
@@ -186,9 +179,26 @@ def train():
         'train_loss': train_loss,
         'val_acc': val_accuracy,
         })
+    # log images and its prediction from the last batch
+    i = 0
+    for image, label, prediction in zip(images, labels, top_class):
+        class_index = {'0R': 0, '1R': 1, '2R': 2, '3R': 3, '4R': 4, '5R': 5, '0L': 6, '1L':7, '2L':8, '3L':9, '4L':10, '5L':11}
+        class_index_inv = {v: k for k, v in class_index.items()}
+        images = wandb.Image(image, 
+                            caption=f'Prediction: {class_index_inv[prediction.item()]} \n True: {class_index_inv[label.item()]}')
+        wandb.log({"examples": images})
+        # image = image.view(128, 128)
+        # class_index = {'0R': 0, '1R': 1, '2R': 2, '3R': 3, '4R': 4, '5R': 5, '0L': 6, '1L':7, '2L':8, '3L':9, '4L':10, '5L':11}
+        # class_index_inv = {v: k for k, v in class_index.items()}
+        # plt.imshow(image, cmap='gray')
+        # plt.title(f'Prediction: {class_index_inv[prediction.item()]} \n True: {class_index_inv[label.item()]}')
+        # wandb.log({"chart": plt})
+        i += 1
+        if i == 10:
+            break
+        
     torch.save(model.state_dict(), os.path.join('models','my_trained_model.pt')) 
 
 if __name__ == "__main__":
-    #train()
     # Start sweep job.
     wandb.agent(sweep_id, function=train, count=4)
