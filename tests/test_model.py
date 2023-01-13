@@ -10,14 +10,16 @@ class TestModel:
     @pytest.mark.parametrize(
         "test_input,expected",
         [
-            (torch.randn(1, 1, 2, 28), ValueError),
-            (torch.randn(64, 1, 28, 2), ValueError),
+            (torch.randn(1, 2, 28), ValueError),
+            (torch.randn( 1, 28, 2), ValueError),
             (torch.randn(100, 3, 28, 28), ValueError),
         ],
     )
     def test_model_input_shape(self, test_input, expected):
-        model = MyAwesomeModel(0.25, 0.5)
-        model.train()
+        model = MyAwesomeModel()
+        state_dict = torch.load("src/models/my_trained_model.pt")
+        model.load_state_dict(state_dict)
+
         # if the input has the wrong shape, the model should raise a ValueError
         with pytest.raises(
             expected, match="Expected each x sample to have shape 1,28,28"
@@ -28,12 +30,14 @@ class TestModel:
     @pytest.mark.parametrize(
         "test_input,expected",
         [
-            (torch.randn(1, 1, 28, 28), (1, 10)),
-            (torch.randn(64, 1, 28, 28), (64, 10)),
-            (torch.randn(100, 1, 28, 28), (100, 10)),
+            (torch.randn(128, 128), (1)),
+            (torch.randn(64, 128, 128), (64, 1)),
+            (torch.randn(100, 1, 128, 128), (100, 1)),
         ],
     )
     def test_model_output(self, test_input, expected):
-        model = MyAwesomeModel(0.25, 0.5)
-        output = model(test_input)
+        model = MyAwesomeModel()
+        state_dict = torch.load("src/models/my_trained_model.pt")
+        model.load_state_dict(state_dict)
+        
         assert output.shape == expected
