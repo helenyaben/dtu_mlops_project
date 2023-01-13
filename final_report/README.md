@@ -446,7 +446,7 @@ We used requirements.txt file to save and store all the dependancies used in the
 
 > In the following section we would like you to think about the general structure of your project.
  
-### Question 25 (Antek/Oliver)
+### Question 25 (everyone?)
 
 > **Include a figure that describes the overall architecture of your system and what services that you make use of.**
 > **You can take inspiration from [this figure](figures/overview.png). Additionally in your own words, explain the**
