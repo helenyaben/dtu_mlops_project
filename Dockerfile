@@ -18,13 +18,10 @@ RUN pip install -r requirements.txt
 ARG _GDRIVE_CREDENTIALS_DATA
 ENV GDRIVE_CREDENTIALS_DATA = $_GDRIVE_CREDENTIALS_DATA
 RUN dvc init --no-scm
-RUN dvc remote add -d myremote gs://dtumlops_project_fingers/
+RUN dvc remote add -d myremote gs://fingers_dataset/
 RUN dvc pull
-
-# Create dataset
-RUN python src/data/make_dataset.py data/raw data/processed
 
 # Set Wandb api environmental variable
 ARG _WANDB_API_KEY
 ENV WANDB_API_KEY = $_WANDB_API_KEY
-ENTRYPOINT ["python", "-u", "src/models/train_model.py"]
+ENTRYPOINT ["python", "-u", "src/models/train_model.py", "$WANDB_API_KEY"]
