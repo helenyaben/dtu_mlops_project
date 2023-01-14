@@ -9,6 +9,7 @@ RUN apt update && \
 COPY requirements.txt requirements.txt
 COPY setup.py setup.py
 COPY src/ src/
+COPY data.dvc data.dvc
 
 WORKDIR /
 
@@ -20,6 +21,9 @@ ENV GDRIVE_CREDENTIALS_DATA=$_GDRIVE_CREDENTIALS_DATA
 RUN dvc init --no-scm
 RUN dvc remote add -d myremote gs://fingers_dataset/
 RUN dvc pull
+
+# Create processed tensors
+RUN python -u src/data/make_dataset.py
 
 # Set Wandb api environmental variable
 ARG _WANDB_API_KEY
