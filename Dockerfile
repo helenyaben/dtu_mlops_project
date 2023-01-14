@@ -23,7 +23,7 @@ RUN dvc remote add -d myremote gs://fingers_dataset/
 RUN dvc pull
 
 # Create processed tensors
-RUN python -u src/data/make_dataset.py
+RUN python -u src/data/make_dataset.py data/raw data/processed
 
 # Set Wandb api environmental variable
 ARG _WANDB_API_KEY
