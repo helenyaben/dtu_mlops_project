@@ -24,5 +24,4 @@ RUN dvc pull
 # Set Wandb api environmental variable
 ARG _WANDB_API_KEY
 ENV WANDB_API_KEY=$_WANDB_API_KEY
-RUN ECHO $WANDB_API_KEY
 ENTRYPOINT ["python", "-u", "src/models/test_docker.py"]
