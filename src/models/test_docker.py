@@ -17,22 +17,6 @@ import pickle
 
 import wandb
 
-# Define sweep config
-sweep_configuration = {
-    'method': 'random',
-    'name': 'sweep',
-    'metric': {'goal': 'maximize', 'name': 'val_acc'},
-    'parameters': 
-    {
-        'batch_size': {'values': [16, 32, 64]},
-        'epochs': {'values': [2, 3, 4]},
-        'lr': {'max': 0.001, 'min': 0.0001}
-     }
-}
-
-# Initialize sweep by passing in config. (Optional) Provide a name of the project.
-sweep_id = wandb.sweep(sweep=sweep_configuration)
-
 # 1. Subclass torch.utils.data.Dataset
 class ImageFolderCustom(Dataset):
     
@@ -193,6 +177,21 @@ def train():
         pickle.dump(model, f)
 
 if __name__ == "__main__":
+    # Define sweep config
+    sweep_configuration = {
+        'method': 'random',
+        'name': 'sweep',
+        'metric': {'goal': 'maximize', 'name': 'val_acc'},
+        'parameters': 
+        {
+            'batch_size': {'values': [16, 32, 64]},
+            'epochs': {'values': [2, 3, 4]},
+            'lr': {'max': 0.001, 'min': 0.0001}
+        }
+    }
+
+    # Initialize sweep by passing in config. (Optional) Provide a name of the project.
+    sweep_id = wandb.sweep(sweep=sweep_configuration, project='my-third-sweep', entity='dtu-mlops-gr30')
     #train()
     # Start sweep job.
     wandb.agent(sweep_id, function=train, count=4, project='my-third-sweep', entity='dtu-mlops-gr30')
