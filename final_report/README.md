@@ -148,7 +148,7 @@ s213617, s213027, s213612, s174032, s212588
 >
 > Answer:
 
-We used requirements.txt file to save and store all the dependancies used in the project. The final list of dependencies was auto-generated using the following command `pipreqs` executed at the root of the project directory. According to several online sources, this command is the best alternative as it saves only the packages used in the project, tackling the issues which occur if using *pip freeze*. After cloning the repository locally and being at its root, to get a complete copy of our development environment, one would have to run the following commands in the terminal:
+We used requirements.txt file to save and store all the dependancies used in the project. The final list of dependencies was auto-generated using the following command `pipreqs` executed at the root of the project directory. According to several online sources, this command is the best alternative as it saves only the packages used in the project, tackling the issues which occur if using `pip freeze`. After cloning the repository locally and being at its root, to get a complete copy of our development environment, one would have to run the following commands in the terminal:
 * `pip3 install pipreqs`
 * `conda create --name environemnt_name`
 * `pip3 install -r requirements.txt`
