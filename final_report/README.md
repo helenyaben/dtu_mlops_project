@@ -266,7 +266,9 @@ This dat set up enabled us to store large files in GitHub which as a service pro
 >
 > Answer:
 
-We have organized our CI into 3 separate files: one for doing general tests, one for running ... testing and one for running
+We have organized our Continous Integration into 3 separate worflow files stored in `.github/workflows` folder: one for seting up the enviroment, ensuring that all dependacies are installed and data can be downloaded, and sorting imports, second for running `flake8 .` command on all the files to check whether the code is pep8 compliant and third for running all the pytest unittests implemented to ensure that for example input data is in correct shape. In particular, first and third workflows were the most important for us because without the code wouldn't execute, while the third one would be ideally passed when all the code have been adjusted to the pep8 requirements. Additionally, the caching was included in the workflow files to optimize the actions. 
+
+An example of a triggered workflow can be seen here: [General Tests](https://github.com/helenyaben/dtu_mlops_project/actions/runs/3933632932)
 
 ## Running code and tracking experiments
 
