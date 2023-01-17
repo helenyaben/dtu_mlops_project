@@ -389,6 +389,7 @@ An example of a triggered workflow reponsible for general tests (first one descr
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+     
 The *dtumlops_project_fingers* is the one where data is stored.
 ![my_image](figures/GCP_buckets.png)
 
