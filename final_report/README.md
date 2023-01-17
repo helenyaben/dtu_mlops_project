@@ -178,7 +178,7 @@ We used requirements.txt file to save and store all the dependancies used in the
 >
 > Answer:
 
---- question 6 fill here ---
+Even though there were no particular rules for quality and format implemented in the project, we explored two packages related to good coding practices.  **flake8** to check how pep8 compliant is our code and **isort** (the command `isort .`) to sort the import statements in all the relevant files. Besides that we commented the code in a comprehensive way. It is crucial to remember about documentation, styling and typing in larger projects to optimize the code quantity, organize it in aligned way between files and keep it accessible/understandable for every member and to enable a quick on-boarding of a new member.  
 
 ## Version control
 
@@ -227,7 +227,7 @@ We used requirements.txt file to save and store all the dependancies used in the
 >
 > Answer:
 
---- question 9 fill here ---
+Since in the project GitHub served as our main repository, we tried to use github's features to facilitate the organization, and preventing from losing important information or implementing unwanted changes. Among others, everyone worked in their branch which they created locally. Once done with a chunk of work, they always pulled the new implementations to this branch. Afterwards, they issued a pull request explaining the changes made and in some cases asking also for double-checking if everything works for others. Then any other project member was responsible for accepting the merge with the `master` branch. When merging conflict appeared, we were carefully looking into built-in editor to adjust the final version of the file in question.
 
 ### Question 10 (Ania)
 
@@ -242,7 +242,15 @@ We used requirements.txt file to save and store all the dependancies used in the
 >
 > Answer:
 
---- question 10 fill here ---
+We did make use of DVC in the following way: 
+* We installed all the necessary packages to run it.
+* The data was downloaded locally by one of the project members and put in `data/` folder belogning to cookiecutter structure. 
+* The remote storage was set to GCP bucket created specifically for this data. 
+* The following commands were executed with relevant files mentioned, `dvc add -> git add -> git commit -> git tag -> dvc push -> git push`.
+* Among others, the corresponding `.dvc/config` file was added to the repository to point to the storage, meanwhile the `data/` folder appeared in `.gitignore`. Also, the metafiles appeared in the remote storage.
+* Finally, we checked if after clocning the repository, the user could simply run `dvc pull` and obtain the data locally.
+
+This dat set up enabled us to store large files in GitHub which as a service prohibits those, issuing a warning when a file has already 50MB.
 
 ### Question 11 (Ania)
 
@@ -258,7 +266,7 @@ We used requirements.txt file to save and store all the dependancies used in the
 >
 > Answer:
 
---- question 11 fill here ---
+We have organized our CI into 3 separate files: one for doing general tests, one for running ... testing and one for running
 
 ## Running code and tracking experiments
 
@@ -449,7 +457,7 @@ We used requirements.txt file to save and store all the dependancies used in the
 
 > In the following section we would like you to think about the general structure of your project.
  
-### Question 25 (Oliver)
+### Question 25 (everyone)
 
 > **Include a figure that describes the overall architecture of your system and what services that you make use of.**
 > **You can take inspiration from [this figure](figures/overview.png). Additionally in your own words, explain the**
