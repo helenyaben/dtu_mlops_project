@@ -266,9 +266,9 @@ This dat set up enabled us to store large files in GitHub which as a service pro
 >
 > Answer:
 
-We have organized our Continous Integration into 3 separate worflow files stored in `.github/workflows` folder: one for seting up the enviroment, ensuring that all dependacies are installed and data can be downloaded, and sorting imports, second for running `flake8 .` command on all the files to check whether the code is pep8 compliant and third for running all the pytest unittests implemented to ensure that for example input data is in correct shape. In particular, first and third workflows were the most important for us because without the code wouldn't execute, while the third one would be ideally passed when all the code have been adjusted to the pep8 requirements. Additionally, the caching was included in the workflow files to optimize the actions. 
+We have organized our Continous Integration into 3 separate workflow files stored in `.github/workflows` folder: one for seting up the enviroment, ensuring that all dependacies are installed and data can be downloaded, second for running `flake8 .` and `isort .` commands on all the files to check whether the code is pep8 compliant and sorting imports in all coding files, respectively. Third workflow serves for running all the pytest unittests implemented to ensure that for example input data is in correct shape. In particular, the first and the third workflows were the most important for us because without them passing the app wouldn't execute, while the third one would be ideally passed when all the code have been adjusted to the pep8 requirements. Additionally, the caching was included in the workflow files to optimize the actions. 
 
-An example of a triggered workflow can be seen here: [General Tests](https://github.com/helenyaben/dtu_mlops_project/actions/runs/3933632932)
+An example of a triggered workflow reponsible for general tests (first one described) can be seen here: [General Tests](https://github.com/helenyaben/dtu_mlops_project/actions/runs/3933632932)
 
 ## Running code and tracking experiments
 
