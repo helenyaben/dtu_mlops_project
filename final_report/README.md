@@ -388,7 +388,7 @@ We have organized our CI into 3 separate files: one for doing general tests, one
 >
 > Answer:
 
---- question 19 fill here ---
+![my_image](figures/GCP_buckets.png)
 
 ### Question 20 (Helena)
 
