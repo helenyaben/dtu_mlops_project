@@ -199,7 +199,6 @@ Even though there were no particular rules for quality and format implemented in
 
 We have implemented 2 tests in total. In the first test we are checking that the data gets correctly loaded, i.e. that the test and train data sets each have the expected number of data points that is 18000 for training and 3600 for testing and further that each image has the expected dimensions (1 x 128 x 128). In the second we test the model in the way that we check if the model produces for an input with shape (x , 1, 128, 128) an output of shape (x, 12) where 12 corresponds to the amount of defined classe.
 
---- question 7 fill here ---
 
 ### Question 8 (David)
 
@@ -214,7 +213,8 @@ We have implemented 2 tests in total. In the first test we are checking that the
 >
 > Answer:
 
---- question 8 fill here ---
+The total code coverage is 100% (see tests/coverage_report.txt). However, that doesn't mean that the code is free of errors. The implemented scripts test only specific aspects of the code. But since the whole code needs to be executed for testing those aspects the coverage is 100%. That shows, that the code passes the specific tests AND that it is possible to execute the code for loading the data and the model. Still, there could be errors at other points: The train and test images could be have errors that are not visible "from the outside". The model could have a architecture that makes it meaningsless or unable to actually train on the data. 
+Hence the code coverage of 100% should be taken with a grain of salt. 
 
 ### Question 9 (Ania)
 
