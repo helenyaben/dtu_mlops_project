@@ -197,6 +197,8 @@ Even though there were no particular rules for quality and format implemented in
 >
 > Answer:
 
+We have implemented 2 tests in total. In the first test we are checking that the data gets correctly loaded, i.e. that the test and train data sets each have the expected number of data points that is 18000 for training and 3600 for testing and further that each image has the expected dimensions (1 x 128 x 128). In the second we test the model in the way that we check if the model produces for an input with shape (x , 1, 128, 128) an output of shape (x, 12) where 12 corresponds to the amount of defined classe.
+
 --- question 7 fill here ---
 
 ### Question 8 (David)
