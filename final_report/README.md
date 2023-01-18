@@ -451,7 +451,7 @@ The *dtumlops_project_fingers* is the one where data is stored.
 > Answer length: 25-100 words.
 >
 > Example:
-> *Group member 1 used ..., Group member 2 used ..., in total ... credits was spend during development. The service*
+> *Group member s213027 used 3$, Group member 2 used ..., in total ... credits was spend during development. The service*
 > *costing the most was ... due to ...*
 >
 > Answer:
