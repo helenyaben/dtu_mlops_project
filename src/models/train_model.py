@@ -147,6 +147,7 @@ def train():
             batch_acccuracy = torch.mean(equals.type(torch.FloatTensor)) 
             train_accuracies.append(batch_acccuracy)
             wandb.log({"batch_loss": batch_loss})
+            wandb.log({"batch_accuracy": batch_acccuracy})
         
         # Calculate validation loss and accuracy
         val_accuracies = []
