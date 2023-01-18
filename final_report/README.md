@@ -353,7 +353,11 @@ To optimize the training we used W&B Sweep to automate hyperparameter search and
 >
 > Answer:
 
---- question 14 fill here ---
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/wandb-dashboard.jpg)
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/batch loss figure.jpg)
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/overview.jpg)
+
+
 
 ### Question 15 (Helena)
 
