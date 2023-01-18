@@ -360,10 +360,12 @@ The first image shows the dashboard of one sweep. It provides an overview over t
 ![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/batch_loss.png)
 
 The second image shows the detailed view of the training loss, logged for eatch batch of the training. 
-It is vissible that the loss varied from batch to batch, yet all loss curves are converging to 0.
+It is vissible that the loss varied from batch to batch, yet all loss curves converge to 0. 
+The speed of convergance varies from run to run, dependent on the configurations. 
 
 ![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/overview.png)
 
+This image shows the detailed view of the run comparison. It the exact parameters for each run, the number of steps and the total runtime as well as a summary statistics. Further, histograms for all model parameters are saved which alllows to compare the weights and biases for each run. 
 
 
 ### Question 15 (Helena)
