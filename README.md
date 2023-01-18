@@ -58,7 +58,7 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+    ├── final report       <- Final report in markdown format
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
@@ -81,8 +81,10 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
+    ├── tests.             <- Pytests for data, model and traingin and coverage report
     │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    ├──  tox.ini           <- tox file with settings for running tox; see tox.readthedocs.io
+    └──  wandb             <- files for logging with Weights & Biases - also available online
 
 
 --------
