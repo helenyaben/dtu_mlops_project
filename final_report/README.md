@@ -289,7 +289,19 @@ An example of a triggered workflow reponsible for general tests (first one descr
 >
 > Answer:
 
---- question 12 fill here ---
+For a single training run we first used the predefined simple argparser, where we could define the learning rate as a command line argument: ```python my_script.py --lr 1e-3 --batch_size 25```.
+When implementing logging with wandb we used a config file ```config.yaml``` to specify learing rate, batch size and number of epochs. In the code, we loaded the config files:
+
+```
+open('./config.yaml') as file:
+        config = yaml.load(file, Loader=yaml.FullLoader)
+wandb.init(config=config)
+# use values `wandb.config` instead from parser
+lr  =  wandb.config.lr
+bs = wandb.config.batch_size
+epochs = wandb.config.epochs
+```
+
 
 ### Question 13 (David)
 
