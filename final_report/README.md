@@ -536,7 +536,11 @@ The *dtumlops_project_fingers* is the one where data is stored.
 >
 > Answer:
 
---- question 26 fill here ---
+--- One of the main struggles of the project was the fact that the tools and technologies were new to us, as our background is not in computer science or software engineering. This required a significant amount of time and effort to learn and familiarize ourselves with the different libraries and frameworks being used. Additionally, we also faced challenges with managing our environments and ensuring that they were consistent across different team members.
+
+To overcome these challenges, we spent a significant amount of time researching and experimenting with different tools and techniques. We also made a conscious effort to document and share our knowledge and progress with each other. This helped us to stay on the same page and avoid duplication of effort. We also spent a lot of time working with the terminal and this helped us to become more comfortable and confident working with it.
+
+The project was a challenging but rewarding experience, as it taught us a lot about working with new tools and technologies, and helped us to improve our skills in software engineering and ML ops. ---
 
 ### Question 27 (everyone)
 
