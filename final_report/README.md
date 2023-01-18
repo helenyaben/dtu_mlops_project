@@ -129,7 +129,7 @@ s213617, s213027, s213612, s174032, s212588
 >
 > Answer:
 
---- question 3 fill here ---
+--- We were working in the PyTorch ecosystem on a classification problem of images of hands showing a number of fingers. Instead of using pre-trained models or frameworks, we started off with designing and training a custom model. This model consisted of a convolutional backbone for feature extraction and a fully connected layer for classification. Eventually, we decided not to use any of the proposed open source frameworks as we were able to achieve 100% accuracy on the test set using our custom-designed architecture. We deliberately chose a fairly easy task to work with since we wanted to use our energy on learning the ML Ops methodology and frameworks. This approach allowed us to do so, as we didn't have to spend a significant amount of time on training and tuning the deep learning model. ---
 
 ## Coding environment
 
