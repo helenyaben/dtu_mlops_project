@@ -290,7 +290,7 @@ An example of a triggered workflow reponsible for general tests (first one descr
 > Answer:
 
 For a single training run we first used the predefined simple argparser, where we could define the learning rate as a command line argument: ```python my_script.py --lr 1e-3 --batch_size 25```.
-When implementing logging with wandb we used a config file ```config.yaml``` to specify learing rate, batch size and number of epochs. In the code, we loaded the config files:
+When implementing logging with wandb we used a config file ```config.yaml``` to specify learing rate, batch size and number of epochs. In the code, we loaded the parameters by the following codes:
 
 ```
 open('./config.yaml') as file:
@@ -301,6 +301,7 @@ lr  =  wandb.config.lr
 bs = wandb.config.batch_size
 epochs = wandb.config.epochs
 ```
+
 
 
 ### Question 13 (David)
@@ -316,7 +317,26 @@ epochs = wandb.config.epochs
 >
 > Answer:
 
---- question 13 fill here ---
+For ensure reproducibility we used the wandb framework as described above. For each run we logged the configurations regarding learning rate, batch size and number of epochs. 
+Further for each epoch we logged training accuracy, training loss and validation accuracy:
+```
+# Log epoch, loss and accuracy to wandb
+wandb.log({
+'epoch': e, 
+'train_acc': train_accuracy,
+'train_loss': train_loss,
+'val_acc': val_accuracy,
+})
+```
+
+This data is then saved in our common wandb team, as data for a run in a project. For reproducing an experiment we can look up the parameters, adapt the config file accordingly and run ```train_model.py```. 
+
+To optimize the training we used W&B Sweep to automate hyperparameter search and explore the space of possible models. We create a sweep by 
+- Defining a sweep coniguration, e.g. the range of batch sizes, epochs and learning rates in that we want to use for the training
+- Initializing the sweep with the configurations: ```sweep=sweep_configuration, project='my-first-sweep')```
+- Starting the sweep agent: ```wandb.agent(sweep_id, function=train)``` Here we define that is used for training. In the same manner as before we now can log the accuracy, loss and some example images that shows some predictions on the validation data set. 
+
+
 
 ### Question 14 (David)
 
