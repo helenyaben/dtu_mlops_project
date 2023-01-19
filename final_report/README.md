@@ -154,7 +154,7 @@ We used requirements.txt file to save and store all the dependancies used in the
 * `pip3 install -r requirements.txt`
 
 
-### Question 5 (Helena)
+### Question 5
 
 > **We expect that you initialized your project using the cookiecutter template. Explain the overall structure of your**
 > **code. Did you fill out every folder or only a subset?**
@@ -378,7 +378,7 @@ The speed of convergance varies from run to run, dependent on the configurations
 This image shows the detailed view of the run comparison. It the exact parameters for each run, the number of steps and the total runtime as well as a summary statistics. Further, histograms for all model parameters are saved which alllows to compare the weights and biases for each run. 
 
 
-### Question 15 (Helena)
+### Question 15
 
 > **Docker is an important tool for creating containerized applications. Explain how you used docker in your**
 > **experiments? Include how you would run your docker images and include a link to one of your docker files.**
@@ -414,7 +414,7 @@ For our project we have developed two images:
 
 > In the following section we would like to know more about your experience when developing in the cloud.
 
-### Question 17 (Helena)
+### Question 17
 
 > **List all the GCP services that you made use of in your project and shortly explain what each service does?**
 >
@@ -447,7 +447,7 @@ We have used the following services:
 
 --- question 18 fill here ---
 
-### Question 19 (Ania/Helena)
+### Question 19
 
 > **Insert 1-2 images of your GCP bucket, such that we can see what data you have stored in it.**
 > **You can take inspiration from [this figure](figures/bucket.png).**
@@ -456,10 +456,11 @@ We have used the following services:
      
 The *dtumlops_project_fingers* is the one where data is stored.
 ![my_image](figures/GCP_buckets.png)
-The fingers_model bucket is the one where the model weights of the trained model are stored as a .pt file.
+
+The *fingers_model* bucket is the one where the model weights of the trained model are stored as a .pt file.
 ![bucket_model](figures/fingers_model.png)
 
-### Question 20 (Helena)
+### Question 20
 
 > **Upload one image of your GCP container registry, such that we can see the different images that you have stored.**
 > **You can take inspiration from [this figure](figures/registry.png).**
@@ -468,7 +469,7 @@ The fingers_model bucket is the one where the model weights of the trained model
 
 ![containers](figures/container_registry.png)
 
-### Question 21 (Helena)
+### Question 21
 
 > **Upload one image of your GCP cloud build history, so we can see the history of the images that have been build in**
 > **your project. You can take inspiration from [this figure](figures/build.png).**
@@ -578,4 +579,4 @@ The project was a challenging but rewarding experience, as it taught us a lot ab
 >
 > Answer:
 
---- question 27 fill here ---
+All members contributed equally.
