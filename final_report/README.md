@@ -174,10 +174,10 @@ We used the cookiecutter template for [Data Science projects](https://github.com
    1. `data/`: The script `make_dataset.py` in charge of preprocessing the raw data was placed in this folder. Any other scripts aimed at processing the data would also be placed here.
    2. `models/`: The script `model.py` containing the backbone of the model, and the scripts `train_model.py` and `predict_model.py` used for training and predicting were placed in this folder. 
    3. Folders `features/` and `visualization/` where removed.  
-4. `tests/`: This folder contains test scripts used by the `pytest`.
-5. Folders `reports/`, `notebooks/`, `docs/`, and `references/` were removed. 
-6. Folder `final_report/` was added, which contains the final report of the project.
-7. Folder `.dvc/` was added, which contains the configuration of the data repository. 
+4. `tests/`: This folder was added to the original structure and contains test scripts used by the `pytest`.
+5. `app/`: This folder contains the code of the FastAPI app for cloud deployment of our model.
+6. Folders `reports/`, `notebooks/`, `docs/`, and `references/` were removed. Folder `final_report/` was added, which contains the final report of the project.
+8. Folder `.dvc/` was added, which contains the configuration of the data repository. 
 
 ### Question 6 (Ania)
 
