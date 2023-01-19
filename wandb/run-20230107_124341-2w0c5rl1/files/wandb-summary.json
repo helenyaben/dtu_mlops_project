@@ -1,1 +1,0 @@
-{"chart": {"_type": "image-file", "sha256": "c0de6a01433a0b1bb56513f6e06cb9b8d8b5b6bde3e988212523b7c45b37db08", "size": 120444, "path": "media/images/chart_15_c0de6a01433a0b1bb565.png", "format": "png", "width": 640, "height": 480}, "_timestamp": 1673091834.9802408, "_runtime": 13.896600723266602, "_step": 16, "Accuracy on test": 0.0, "_wandb": {"runtime": 13}}
