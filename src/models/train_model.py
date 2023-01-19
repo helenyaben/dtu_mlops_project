@@ -5,6 +5,7 @@ from typing import Dict, List, Tuple
 import click
 import matplotlib.pyplot as plt
 import torch
+import yaml
 import torch.nn.functional as F
 from matplotlib.pyplot import show
 from model import MyAwesomeModel
@@ -23,15 +24,11 @@ sweep_configuration = {
     'metric': {'goal': 'maximize', 'name': 'val_acc'},
     'parameters': 
     {
-        'batch_size': {'values': [16, 32, 64]},
-        'epochs': {'values': [2, 3, 4]},
+        'batch_size': {'values': [16, 32]},
+        'epochs': {'values': [2,3]},
         'lr': {'max': 0.001, 'min': 0.0001}
      }
 }
-
-# Initialize sweep by passing in config. (Optional) Provide a name of the project.
-sweep_id = wandb.sweep(sweep=sweep_configuration, project='really-the-last-sweep')
-
 
 # 1. Subclass torch.utils.data.Dataset
 class ImageFolderCustom(Dataset):
@@ -67,32 +64,18 @@ class ImageFolderCustom(Dataset):
         # Transform if necessary
         return img, class_idx # return data, label (X, y)
 
-# @click.command()
-# @click.option("--lr", default=1e-3, help='learning rate to use for training')
 
 # def train(epochs,batch_size,lr):
-def train():
-    run = wandb.init()
+def train(option = 'train'):
+    if option == 'train':
+        wandb.init()
     lr  =  wandb.config.lr
     batch_size = wandb.config.batch_size
     epochs = wandb.config.epochs
 
-
-    # # Set up your default parameters
-    # config = {"epochs": 4, "batch_size": 32, "lr" : 1e-3}
-    # wandb.init(project = "Fingers", config =config)
-    # lr  =  wandb.config.lr
-    # batch_size = wandb.config.batch_size
-    # epochs = wandb.config.epochs
-
     model = MyAwesomeModel()
     wandb.watch(model, log_freq=100)
 
-     # Set up your default hyperparameters
-    # with open('src/models/sweep.yaml') as file:
-    #    config = yaml.load(file, Loader=yaml.FullLoader)
-    # sweep_id = wandb.sweep(sweep=config, project='my-first-sweep')
-    # wandb.agent(sweep_id, function=train, count=4)
 
     
     trainset = ImageFolderCustom(targ_dir=os.path.join(os.getcwd(), 'data', 'processed'), train=True)
@@ -114,7 +97,7 @@ def train():
     train_losses = []
 
     print("Training day and night")
-    print(lr)
+    print("learning rate:", lr)
     
     for e in range(epochs):
 
@@ -169,7 +152,7 @@ def train():
         train_losses.append(train_loss)
         val_accuracy = sum(val_accuracies)/len(valloader)
 
-        print(f"Epoch {e+1 } - Train loss: {epoch_losses/len(trainloader)}, Accuracy on val: {val_accuracy.item()*100}%")
+        print(f"Epoch {e+1 } - Train loss: {epoch_losses/len(trainloader)}, Val accuracy: {val_accuracy.item()*100}%")
         
         # log important metrics
         train_accuracy = sum(train_accuracies)/len(trainloader)
@@ -192,13 +175,51 @@ def train():
         i += 1
         if i == 4:
             break
+    save_best_model(train_loss, model, lr, epochs, batch_size)
+    # torch.save(model.state_dict(), os.path.join('models','my_trained_model.pt')) 
+    # # save model as pickle
+    # with open(os.path.join('models','my_trained_model.pkl'), 'wb') as f:
+    #     pickle.dump(model, f)
 
-    torch.save(model.state_dict(), os.path.join('models','my_trained_model.pt')) 
-    # save model as pickle
-    with open(os.path.join('models','my_trained_model.pkl'), 'wb') as f:
-        pickle.dump(model, f)
+def save_best_model(train_loss, model, lr, epochs, batch_size):
+    #load best config and compare with current train loss
+    with open('src/models/best_config.yaml') as file:
+        config_settings = yaml.load(file, Loader=yaml.FullLoader)
+    if config_settings['loss']['validation_loss'] > train_loss:
+        # if better val loss update best config and save model
+        config_settings['loss']['validation_loss'] = train_loss
+        config_settings['parameters']['lr'] = lr
+        config_settings['parameters']['epochs'] = epochs
+        config_settings['parameters']['batch_size'] = batch_size
+        with open('src/models/best_config.yaml', 'w') as file:
+            yaml.dump(config_settings, file)
+        torch.save(model.state_dict(), os.path.join('models','my_trained_model.pt')) 
+        # save model to gcloud
+        # BUCKET_NAME = 'fingers_model'
+        # MODEL_FILE = 'my_trained_model.pt'
+        # client = storage.Client()
+        # bucket = client.get_bucket(BUCKET_NAME)
+        # blob = bucket.get_blob(MODEL_FILE)
+        # blob.save_to_filename(MODEL_FILE)
+
+
+@click.command()
+@click.option("--run", default="train", help="select between train or sweep")
+def decide_run(run):
+    if run == "sweep":
+        # Initialize sweep by passing in config. (Optional) Provide a name of the project.
+        sweep_id = wandb.sweep(sweep=sweep_configuration, project='test-sweep')
+        # Start sweep job.
+        wandb.agent(sweep_id, function=train, count=4)
+    else:
+        #load best run parameters
+        with open('src/models/best_config.yaml') as file:
+            config_settings = yaml.load(file, Loader=yaml.FullLoader)
+        wandb.init(config = config_settings['parameters'])
+        train("train")
+
 
 if __name__ == "__main__":
-    #train()
-    # Start sweep job.
-    wandb.agent(sweep_id, function=train, count=4)
+    decide_run()
+
+
