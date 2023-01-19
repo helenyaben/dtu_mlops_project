@@ -53,7 +53,7 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
     │
-    ├── report       <- Final report in markdown format
+    ├── report             <- Final report in markdown format
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
