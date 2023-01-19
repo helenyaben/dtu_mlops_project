@@ -21,6 +21,8 @@ The goal of the project is to develop MLOps pipeline for computer vision problem
  - Reproducibility: Docker
  - Experiment logging: Weights & Biases
  - Minimizing boilerplate
+ - Continuous Integration: Unittesting, Github actions
+ - Google Cloud deployment
 
 
 ### What data are we going to run the model on
