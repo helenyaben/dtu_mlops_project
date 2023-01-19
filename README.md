@@ -1,4 +1,4 @@
-![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/dataset-cover.jpg)
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/report/figures/dataset-cover.jpg)
 # MLOPS project - Image classification of finger pictures
 
 Helena Sofía Yaben Lopezosa - s213617 \
