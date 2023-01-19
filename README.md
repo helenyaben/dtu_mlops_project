@@ -54,8 +54,6 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
     ├── final report       <- Final report in markdown format
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
