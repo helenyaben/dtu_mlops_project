@@ -393,7 +393,7 @@ This image shows the detailed view of the run comparison. It the exact parameter
 
 For our project we have developed two images:
 1. [`Training docker image`](https://github.com/helenyaben/dtu_mlops_project/blob/master/Dockerfile): This image is built automatically by a trigger on Cloud Build every time a commit is made to the main branch of the project repository. Since our training requires interaction with `wandb`, a secret key was set as an environment variable in the trigger configuration and passed to the docker image when being built. This image is meant to be used with `Vertex AI` in order to schedule training jobs on the cloud. The training script is created in a way that the trained model is pushed to a bucket when the training is done. 
-2. [`Fast API image (fast_api.dockerfile)`](https://github.com/helenyaben/dtu_mlops_project/blob/master/fast_api.dockerfile): This image is meant to be run by a `Cloud Service` so that users can upload an image to this API and obtain the prediction from our pretrained model. Since the Fast API gets the model from a cloud bucket, the prediction is always based on the latest trained model.
+2. [`FastAPI image`](https://github.com/helenyaben/dtu_mlops_project/blob/master/fast_api.dockerfile): This image is meant to be run by a `Cloud Service` so that users can upload an image to this API and obtain the prediction from our pretrained model. Since the Fast API gets the model from a cloud bucket, the prediction is always based on the latest trained model.
 
 ### Question 16 (Oliver)
 
