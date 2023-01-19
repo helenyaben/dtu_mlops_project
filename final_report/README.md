@@ -496,12 +496,12 @@ We were able to successfully deploy our model in the cloud after testing it loca
 > Answer length: 25-100 words.
 >
 > Example:
-> *Group member s213027 used 3$, Group member 2 used ..., in total ... credits was spend during development. The service*
+> *Group member ... used ..., Group member ... used all and Group member ... used all, in total ... credits was spend during development. The service*
 > *costing the most was ... due to ...*
 >
 > Answer:
 
---- question 24 fill here ---
+Group member s213027 used 3$, Group member s213617 used all and Group member s174032 used all, in total 63$ credits were spend during development. The Cloud Build generated the highest cost due the app deployment that happened there.
 
 ## Overall discussion of project
 
