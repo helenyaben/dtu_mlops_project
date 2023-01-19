@@ -472,7 +472,7 @@ The *dtumlops_project_fingers* is the one where data is stored.
 >
 > Answer:
 
---- question 22 fill here ---
+We were able to successfully deploy our model in the cloud after testing it locally before deploying. We wrote a python script that takes an image as input and returns a class as output, and used FastAPI to create APIs for communication with the script. We then built a Docker image of the app and pushed it to a container registry. We created a service on Cloud Run to deploy the model. In order to invoke the deployed service, we can make an API call to the endpoint provided by Cloud Run using curl or by making a request from a script or application.
 
 ### Question 23 (Oliver)
 
