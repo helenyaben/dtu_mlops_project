@@ -363,17 +363,17 @@ To optimize the training we used W&B Sweep to automate hyperparameter search and
 >
 > Answer:
 
-![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/wandb-dashboard.png)
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/report/figures/wandb-dashboard.png)
 
 The first image shows the dashboard of one sweep. It provides an overview over the sweep and depicts firstly the runtime and configurations for each run in the sweep. In the upper right corner it shows the batch loss courve for each run. In the two charts below, the trainicng and validation accuracy is depicted for each run. Since we used selected the range 2-4 for the epochs to save time in the training process, only few datapoints are plottet. Still, it is visible that both training and validation accuracy improve for increasing epochs and the model doesn't overfit. The panel at the bottom shows some example images of the validation set with the according predicted and true labels. As we can see, all labels where predicted correctly in the examples. That indicates, that the model actually trained the desired properties.
 
-![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/batch_loss.png)
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/report/figures/batch_loss.png)
 
 The second image shows the detailed view of the training loss, logged for eatch batch of the training. 
 It is vissible that the loss varied from batch to batch, yet all loss curves converge to 0. 
 The speed of convergance varies from run to run, dependent on the configurations. 
 
-![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/final_report/figures/overview.png)
+![alt text](https://github.com/helenyaben/dtu_mlops_project/blob/master/report/figures/overview.png)
 
 This image shows the detailed view of the run comparison. It the exact parameters for each run, the number of steps and the total runtime as well as a summary statistics. Further, histograms for all model parameters are saved which alllows to compare the weights and biases for each run. 
 
