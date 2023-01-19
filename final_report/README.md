@@ -408,7 +408,9 @@ For our project we have developed two images:
 >
 > Answer:
 
---- question 16 fill here ---
+Most of us have used the built in debugger in vs code for sorting out bugs and for stepping through the code to better understand the processes.
+Having used mostly pytorch commands and using a standard boilerplate code setup it was not deem important for profile our training script. 
+This could maybe have been useful for loading data and looking for unseen bottlenecks. On way to do it would be the torch.utils.benchmark tool, making timing of torch functions easy. 
 
 ## Working in the cloud
 
@@ -445,7 +447,9 @@ We have used the following services:
 >
 > Answer:
 
---- question 18 fill here ---
+We used Googles Compute Engine for training and validation of our model and for finding the optimized hyperparameters  (sweep).
+We used a varity of VMs, starting as an only CPU instance but then after getting access we used GPU we tried training using cuda.
+In the end we settled on a N1_HIGHMEM_2 machine, without GPU, for keeping a simple setup and for keeping us from spending the credits too fast.
 
 ### Question 19
 
@@ -507,7 +511,9 @@ We were able to successfully deploy our model in the cloud after testing it loca
 >
 > Answer:
 
---- question 23 fill here ---
+We did not implement monotoring of our deployed model although this could have been practical. Especially considering that we implementated a public API for the model
+which would be great to have monitored. We did however implement a reporting feature for detecting data drifting using evidently. The metrics used for comparing the datasets 
+are the brightness, contrast and sharpness distributions of the images and we use the DataDriftPreset and the DataQualityPreset for reporting.
 
 ### Question 24 (everyone)
 
