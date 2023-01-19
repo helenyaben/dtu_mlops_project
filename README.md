@@ -77,7 +77,7 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
-    ├── tests.             <- Pytests for data, model and traingin and coverage report
+    ├── tests              <- Pytests for data, model and traingin and coverage report
     │
     ├──  tox.ini           <- tox file with settings for running tox; see tox.readthedocs.io
     └──  wandb             <- files for logging with Weights & Biases - also available online
