@@ -167,7 +167,17 @@ We used requirements.txt file to save and store all the dependancies used in the
 > *experiments.*
 > Answer:
 
---- question 5 fill here ---
+We used the cookiecutter template for [Data Science projects](https://github.com/drivendata/cookiecutter-data-science). From this template, we have filled out the following folders:
+1. `data/`: The raw train and test data were placed in two different folders, train and test, inside `data/raw`. The processed data resulting from running `src/data/make_dataset.py` was placed inside `data/processed`. Folders `data/external` and `data/interim/` where deleted. 
+2. `models/`: The trained model (.pt) was saved in this folder after running `src/models/train_model.py`.
+3. `src/`:
+   1. `data/`: The script `make_dataset.py` in charge of preprocessing the raw data was placed in this folder. Any other scripts aimed at processing the data would also be placed here.
+   2. `models/`: The script `model.py` containing the backbone of the model, and the scripts `train_model.py` and `predict_model.py` used for training and predicting were placed in this folder. 
+   3. Folders `features/` and `visualization/` where removed.  
+4. `tests/`: This folder contains test scripts used by the `pytest`.
+5. Folders `reports/`, `notebooks/`, `docs/`, and `references/` were removed. 
+6. Folder `final_report/` was added, which contains the final report of the project.
+7. Folder `.dvc/` was added, which contains the configuration of the data repository. 
 
 ### Question 6 (Ania)
 
@@ -381,7 +391,9 @@ This image shows the detailed view of the run comparison. It the exact parameter
 >
 > Answer:
 
---- question 15 fill here ---
+For our project we have developed two images:
+1. [`Training docker image`](https://github.com/helenyaben/dtu_mlops_project/blob/master/Dockerfile): This image is built automatically by a trigger on Cloud Build every time a commit is made to the main branch of the project repository. Since our training requires interaction with `wandb`, a secret key was set as an environment variable in the trigger configuration and passed to the docker image when being built. This image is meant to be used with `Vertex AI` in order to schedule training jobs on the cloud. The training script is created in a way that the trained model is pushed to a bucket when the training is done. 
+2. [`Fast API image (fast_api.dockerfile)`](https://github.com/helenyaben/dtu_mlops_project/blob/master/fast_api.dockerfile): This image is meant to be run by a `Cloud Service` so that users can upload an image to this API and obtain the prediction from our pretrained model. Since the Fast API gets the model from a cloud bucket, the prediction is always based on the latest trained model.
 
 ### Question 16 (Oliver)
 
@@ -413,7 +425,12 @@ This image shows the detailed view of the run comparison. It the exact parameter
 >
 > Answer:
 
---- question 17 fill here ---
+We have used the following services:
+1. `Cloud Storage`: A bucket for storing the raw train and test data, and a bucket for storing the weights of the trained model were used.
+2. `Cloud Build`: A trigger was configured in order to build a training image and push it to the `Container Registry` every time a commit to the main branch of the project repository is detected.
+3. `Cloud Registry`: The training image and the FastAPI image were stored in the cloud using this service.
+4. `Clud Run`: The FastAPI for cloud deployment of our model is hosted by this service.
+5. `Vertex AI`: This service was used to schedule training jobs that run the training image stored in `Container Registry`.
 
 ### Question 18 (Oliver)
 
@@ -439,6 +456,8 @@ This image shows the detailed view of the run comparison. It the exact parameter
      
 The *dtumlops_project_fingers* is the one where data is stored.
 ![my_image](figures/GCP_buckets.png)
+The fingers_model bucket is the one where the model weights of the trained model are stored as a .pt file.
+![bucket_model](figures/fingers_model.png)
 
 ### Question 20 (Helena)
 
@@ -447,7 +466,7 @@ The *dtumlops_project_fingers* is the one where data is stored.
 >
 > Answer:
 
---- question 20 fill here ---
+![containers](figures/container_registry.png)
 
 ### Question 21 (Helena)
 
@@ -456,7 +475,7 @@ The *dtumlops_project_fingers* is the one where data is stored.
 >
 > Answer:
 
---- question 21 fill here ---
+![my_image](figures/cloud_build.png)
 
 ### Question 22 (Antek)
 
