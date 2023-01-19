@@ -31,7 +31,11 @@ data:
 
 # Train model
 train: 
-	$(PYTHON_INTERPRETER) src/models/train_model.py
+	$(PYTHON_INTERPRETER) src/models/train_model.py --run train
+
+# run sweep
+sweep: 
+	$(PYTHON_INTERPRETER) src/models/train_model.py --run sweep
 
 
 # Predict with model

@@ -1,0 +1,7 @@
+loss:
+  training_loss: 0.1
+  validation_loss: 0.005701058425886168
+parameters:
+  batch_size: 16
+  epochs: 3
+  lr: 0.0008798200900853052
