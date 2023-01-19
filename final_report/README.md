@@ -118,7 +118,7 @@ Group 30
 
 s213617, s213027, s213612, s174032, s212588
 
-### Question 3 (Antek)
+### Question 3 
 > **What framework did you choose to work with and did it help you complete the project?**
 >
 > Answer length: 100-200 words.
@@ -135,7 +135,7 @@ We were working in the PyTorch ecosystem on a classification problem of images o
 
 > In the following section we are interested in learning more about you local development environment.
 
-### Question 4 (Ania)
+### Question 4 
 
 > **Explain how you managed dependencies in your project? Explain the process a new team member would have to go**
 > **through to get an exact copy of your environment.**
@@ -179,7 +179,7 @@ We used the cookiecutter template for [Data Science projects](https://github.com
 6. Folders `reports/`, `notebooks/`, `docs/`, and `references/` were removed. Folder `final_report/` was added, which contains the final report of the project.
 8. Folder `.dvc/` was added, which contains the configuration of the data repository. 
 
-### Question 6 (Ania)
+### Question 6 
 
 > **Did you implement any rules for code quality and format? Additionally, explain with your own words why these**
 > **concepts matters in larger projects.**
@@ -195,7 +195,7 @@ Even though there were no particular rules for quality and format implemented in
 > In the following section we are interested in how version control was used in your project during development to
 > corporate and increase the quality of your code.
 
-### Question 7 (David)
+### Question 7 
 
 > **How many tests did you implement and what are they testing in your code?**
 >
@@ -210,7 +210,7 @@ Even though there were no particular rules for quality and format implemented in
 We have implemented 2 tests in total. In the first test we are checking that the data gets correctly loaded, i.e. that the test and train data sets each have the expected number of data points that is 18000 for training and 3600 for testing and further that each image has the expected dimensions (1 x 128 x 128). In the second we test the model in the way that we check if the model produces for an input with shape (x , 1, 128, 128) an output of shape (x, 12) where 12 corresponds to the amount of defined classe.
 
 
-### Question 8 (David)
+### Question 8 
 
 > **What is the total code coverage (in percentage) of your code? If you code had an code coverage of 100% (or close**
 > **to), would you still trust it to be error free? Explain you reasoning.**
@@ -226,7 +226,7 @@ We have implemented 2 tests in total. In the first test we are checking that the
 The total code coverage is 100% (see tests/coverage_report.txt). However, that doesn't mean that the code is free of errors. The implemented scripts test only specific aspects of the code. But since the whole code needs to be executed for testing those aspects the coverage is 100%. That shows, that the code passes the specific tests AND that it is possible to execute the code for loading the data and the model. Still, there could be errors at other points: The train and test images could be have errors that are not visible "from the outside". The model could have a architecture that makes it meaningsless or unable to actually train on the data. 
 Hence the code coverage of 100% should be taken with a grain of salt. 
 
-### Question 9 (Ania)
+### Question 9 
 
 > **Did you workflow include using branches and pull requests? If yes, explain how. If not, explain how branches and**
 > **pull request can help improve version control.**
@@ -241,7 +241,7 @@ Hence the code coverage of 100% should be taken with a grain of salt.
 
 Since in the project GitHub served as our main repository, we tried to use github's features to facilitate the organization, and preventing from losing important information or implementing unwanted changes. Among others, everyone worked in their branch which they created locally. Once done with a chunk of work, they always pulled the new implementations to this branch. Afterwards, they issued a pull request explaining the changes made and in some cases asking also for double-checking if everything works for others. Then any other project member was responsible for accepting the merge with the `master` branch. When merging conflict appeared, we were carefully looking into built-in editor to adjust the final version of the file in question.
 
-### Question 10 (Ania)
+### Question 10 
 
 > **Did you use DVC for managing data in your project? If yes, then how did it improve your project to have version**
 > **control of your data. If no, explain a case where it would be beneficial to have version control of your data.**
@@ -264,7 +264,7 @@ We did make use of DVC in the following way:
 
 This dat set up enabled us to store large files in GitHub which as a service prohibits those, issuing a warning when a file has already 50MB.
 
-### Question 11 (Ania)
+### Question 11
 
 > **Discuss you continues integration setup. What kind of CI are you running (unittesting, linting, etc.)? Do you test**
 > **multiple operating systems, python version etc. Do you make use of caching? Feel free to insert a link to one of**
@@ -287,7 +287,7 @@ An example of a triggered workflow reponsible for general tests (first one descr
 > In the following section we are interested in learning more about the experimental setup for running your code and
 > especially the reproducibility of your experiments.
 
-### Question 12 (David)
+### Question 12
 
 > **How did you configure experiments? Did you make use of config files? Explain with coding examples of how you would**
 > **run a experiment.**
@@ -314,7 +314,7 @@ epochs = wandb.config.epochs
 
 
 
-### Question 13 (David)
+### Question 13 
 
 > **Reproducibility of experiments are important. Related to the last question, how did you secure that no information**
 > **is lost when running experiments and that your experiments are reproducible?**
@@ -348,7 +348,7 @@ To optimize the training we used W&B Sweep to automate hyperparameter search and
 
 
 
-### Question 14 (David)
+### Question 14 
 
 > **Upload 1 to 3 screenshots that show the experiments that you have done in W&B (or another experiment tracking**
 > **service of your choice). This may include loss graphs, logged images, hyperparameter sweeps etc. You can take**
@@ -395,7 +395,7 @@ For our project we have developed two images:
 1. [`Training docker image`](https://github.com/helenyaben/dtu_mlops_project/blob/master/Dockerfile): This image is built automatically by a trigger on Cloud Build every time a commit is made to the main branch of the project repository. Since our training requires interaction with `wandb`, a secret key was set as an environment variable in the trigger configuration and passed to the docker image when being built. This image is meant to be used with `Vertex AI` in order to schedule training jobs on the cloud. The training script is created in a way that the trained model is pushed to a bucket when the training is done. 
 2. [`FastAPI image`](https://github.com/helenyaben/dtu_mlops_project/blob/master/fast_api.dockerfile): This image is meant to be run by a `Cloud Service` so that users can upload an image to this API and obtain the prediction from our pretrained model. Since the Fast API gets the model from a cloud bucket, the prediction is always based on the latest trained model.
 
-### Question 16 (Oliver)
+### Question 16 
 
 > **When running into bugs while trying to run your experiments, how did you perform debugging? Additionally, did you**
 > **try to profile your code or do you think it is already perfect?**
@@ -434,7 +434,7 @@ We have used the following services:
 4. `Clud Run`: The FastAPI for cloud deployment of our model is hosted by this service.
 5. `Vertex AI`: This service was used to schedule training jobs that run the training image stored in `Container Registry`.
 
-### Question 18 (Oliver)
+### Question 18 
 
 > **The backbone of GCP is the Compute engine. Explained how you made use of this service and what type of VMs**
 > **you used?**
@@ -482,7 +482,7 @@ The *fingers_model* bucket is the one where the model weights of the trained mod
 
 ![my_image](figures/cloud_build.png)
 
-### Question 22 (Antek)
+### Question 22
 
 > **Did you manage to deploy your model, either in locally or cloud? If not, describe why. If yes, describe how and**
 > **preferably how you invoke your deployed service?**
@@ -498,7 +498,7 @@ The *fingers_model* bucket is the one where the model weights of the trained mod
 
 We were able to successfully deploy our model in the cloud after testing it locally before deploying. We wrote a python script that takes an image as input and returns a class as output, and used FastAPI to create APIs for communication with the script. We then built a Docker image of the app and pushed it to a container registry. We created a service on Cloud Run to deploy the model. In order to invoke the deployed service, we can make an API call to the endpoint provided by Cloud Run using curl or by making a request from a script or application.
 
-### Question 23 (Oliver)
+### Question 23 
 
 > **Did you manage to implement monitoring of your deployed model? If yes, explain how it works. If not, explain how**
 > **monitoring would help the longevity of your application.**
@@ -515,7 +515,7 @@ We did not implement monotoring of our deployed model although this could have b
 which would be great to have monitored. We did however implement a reporting feature for detecting data drifting using evidently. The metrics used for comparing the datasets 
 are the brightness, contrast and sharpness distributions of the images and we use the DataDriftPreset and the DataQualityPreset for reporting.
 
-### Question 24 (everyone)
+### Question 24 
 
 > **How many credits did you end up using during the project and what service was most expensive?**
 >
@@ -533,7 +533,7 @@ Group member s213027 used 3$, Group member s213617 used all and Group member s17
 
 > In the following section we would like you to think about the general structure of your project.
  
-### Question 25 (everyone)
+### Question 25 
 
 > **Include a figure that describes the overall architecture of your system and what services that you make use of.**
 > **You can take inspiration from [this figure](figures/overview.png). Additionally in your own words, explain the**
@@ -552,7 +552,7 @@ Group member s213027 used 3$, Group member s213617 used all and Group member s17
 
 --- question 25 fill here ---
 
-### Question 26 (Antek)
+### Question 26 
 
 > **Discuss the overall struggles of the project. Where did you spend most time and what did you do to overcome these**
 > **challenges?**
@@ -570,7 +570,7 @@ To overcome these challenges, we spent a significant amount of time researching 
 
 The project was a challenging but rewarding experience, as it taught us a lot about working with new tools and technologies, and helped us to improve our skills in software engineering and ML ops.
 
-### Question 27 (everyone)
+### Question 27 
 
 > **State the individual contributions of each team member. This is required information from DTU, because we need to**
 > **make sure all members contributed actively to the project**
