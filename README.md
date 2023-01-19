@@ -50,11 +50,8 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── final report       <- Final report in markdown format
+    ├── report       <- Final report in markdown format
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
@@ -79,8 +76,7 @@ We intend to utilise a CNN for the image classification. The CNNs will serve as 
     │       └── visualize.py
     ├── tests              <- Pytests for data, model and traingin and coverage report
     │
-    ├── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-    └── wandb              <- files for logging with Weights & Biases - also available online
+    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
 --------
