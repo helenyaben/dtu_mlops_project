@@ -129,7 +129,7 @@ s213617, s213027, s213612, s174032, s212588
 >
 > Answer:
 
---- We were working in the PyTorch ecosystem on a classification problem of images of hands showing a number of fingers. Instead of using pre-trained models or frameworks, we started off with designing and training a custom model. This model consisted of a convolutional backbone for feature extraction and a fully connected layer for classification. Eventually, we decided not to use any of the proposed open source frameworks as we were able to achieve 100% accuracy on the test set using our custom-designed architecture. We deliberately chose a fairly easy task to work with since we wanted to use our energy on learning the ML Ops methodology and frameworks. This approach allowed us to do so, as we didn't have to spend a significant amount of time on training and tuning the deep learning model. ---
+We were working in the PyTorch ecosystem on a classification problem of images of hands showing a number of fingers. Instead of using pre-trained models or frameworks, we started off with designing and training a custom model. This model consisted of a convolutional backbone for feature extraction and a fully connected layer for classification. Eventually, we decided not to use any of the proposed open source frameworks as we were able to achieve 100% accuracy on the test set using our custom-designed architecture. We deliberately chose a fairly easy task to work with since we wanted to use our energy on learning the ML Ops methodology and frameworks. This approach allowed us to do so, as we didn't have to spend a significant amount of time on training and tuning the deep learning model.
 
 ## Coding environment
 
@@ -545,7 +545,7 @@ Group member s213027 used 3$, Group member s213617 used all and Group member s17
 
 --- question 25 fill here ---
 
-### Question 26 (Antek/Oliver)
+### Question 26 (Antek)
 
 > **Discuss the overall struggles of the project. Where did you spend most time and what did you do to overcome these**
 > **challenges?**
@@ -557,11 +557,11 @@ Group member s213027 used 3$, Group member s213617 used all and Group member s17
 >
 > Answer:
 
---- One of the main struggles of the project was the fact that the tools and technologies were new to us, as our background is not in computer science or software engineering. This required a significant amount of time and effort to learn and familiarize ourselves with the different libraries and frameworks being used. Additionally, we also faced challenges with managing our environments and ensuring that they were consistent across different team members. That being said, each of us had their own struggles including, problems with generating and/or installing requirements.txt, malfunctioning terminal in the VS Code, as well as consolidating the frameworks together.
+One of the main struggles of the project was the fact that the tools and technologies were new to us, as our background is not in computer science or software engineering. This required a significant amount of time and effort to learn and familiarize ourselves with the different libraries and frameworks being used. Additionally, we also faced challenges with managing our environments and ensuring that they were consistent across different team members. That being said, each of us had their own struggles including, problems with generating and/or installing requirements.txt, malfunctioning terminal in the VS Code, as well as consolidating the frameworks together.
 
 To overcome these challenges, we spent a significant amount of time researching and experimenting with different tools and techniques. We also made a conscious effort to document and share our knowledge and progress with each other. This helped us to stay on the same page and avoid duplication of effort. At the same time, we have tried to help each other with different problems and as such we see a great value in group work sessions both didactically and also as a mock up of a possible future work environment. We also spent a lot of time working with the terminal and this helped us to become more comfortable and confident working with it.
 
-The project was a challenging but rewarding experience, as it taught us a lot about working with new tools and technologies, and helped us to improve our skills in software engineering and ML ops. ---
+The project was a challenging but rewarding experience, as it taught us a lot about working with new tools and technologies, and helped us to improve our skills in software engineering and ML ops.
 
 ### Question 27 (everyone)
 
